@@ -1,0 +1,49 @@
+package ExceptionHadling;
+
+public class HotChocolate {
+	 
+	public static final double tooHot=180;
+	public static final double tooCold=160;
+	
+	public static void drinkHotChocolate(double cocoTemp) throws TooHotException , TooColdException{
+		if (cocoTemp >=tooHot) {
+			throw new TooHotException();
+			}
+		else if (cocoTemp<=tooCold) {
+			throw new TooColdException();	
+		    }
+		}
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		double currentCocoTemp=130;
+		try {
+			drinkHotChocolate(currentCocoTemp);
+			System.out.println("Hot Chocolate is Good!");
+		}catch(TooHotException e1) {
+			System.out.println("It's too Hot");
+		}catch(TooColdException e2) {
+			System.out.println("It's too Cold. It's lika a artic!");
+		}
+
+	}
+
+}
+
+package ExceptionHadling;
+
+public class TooHotException extends TemperatureException {
+
+}
+
+package ExceptionHadling;
+
+public class TooColdException extends TemperatureException {
+
+}
+
+package ExceptionHadling;
+
+public class TemperatureException extends Exception {
+
+}
